@@ -141,7 +141,7 @@ resource "aws_instance" "webserver1" {
   key_name               = "KOPSK8S"
   vpc_security_group_ids = [aws_security_group.webserver-sg.id]
   subnet_id              = aws_subnet.web-subnet-1.id
-  user_data              = "${file("apache.sh")}"
+  user_data              = "${file("tomcat.sh")}"
 
   tags = {
     Name = "Web Server-1"
@@ -155,7 +155,7 @@ resource "aws_instance" "webserver2" {
   key_name               = "KOPSK8S"
   vpc_security_group_ids = [aws_security_group.webserver-sg.id]
   subnet_id              = aws_subnet.web-subnet-2.id
-  user_data              = "${file("apache.sh")}"
+  user_data              = "${file("tomcat.sh")}"
 
   tags = {
     Name = "Web Server-2"
@@ -195,7 +195,7 @@ resource "aws_db_instance" "default" {
   engine_version       = "8.0.35"
   instance_class       = "db.t3.micro"
   username             = "admin"
-  password             = "Raham#123568i"
+  password             = "sumit#123568i"
   skip_final_snapshot  = true
 }
 
