@@ -2,7 +2,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "5.65.0"
+      version = "5.69.0"
     }
   }
 }
@@ -16,7 +16,7 @@ provider "aws" {
 resource "aws_vpc" "my-vpc" {
   cidr_block = "10.0.0.0/16"
   tags = {
-    Name = "swiggy-VPC"
+    Name = "netflix-VPC"
   }
 }
 
@@ -102,7 +102,7 @@ resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.my-vpc.id
 
   tags = {
-    Name = "SWIGGY-IGW"
+    Name = "netflix-IGW"
   }
 }
 
@@ -358,10 +358,10 @@ output "lb_dns_name" {
 
 
 resource "aws_s3_bucket" "example" {
-  bucket = "rahamtestbycketterra7788abcdefxxc54hj6jfegrg"
+  bucket = "netflixs3bucket"
 
   tags = {
-    Name        = "rahamtestbycketterra7788abcdefxxc"
+    Name        = "netflixs3bucket"
     Environment = "Dev"
   }
 }
@@ -378,5 +378,5 @@ default = ["userone", "usertwo", "userthree", "userfour"]
 }
 
 resource "aws_iam_group" "two" {
-name = "devopswithawsbyrahamshaik"
+name = "netflixgroup"
 }
